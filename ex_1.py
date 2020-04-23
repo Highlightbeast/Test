@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import multivariate_normal
-from mpl_toolkits.mplot3d import Axes3D
 
 # 1000 samples from an uni-variant gaussian distribution with mean 1 and a standard deviation of 0.2
 mu = 1
