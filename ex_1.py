@@ -7,7 +7,7 @@ mu = 1
 sigma = 0.1
 n_bins = 30
 # experimental distribution
-samples = np.random.normal(mu, sigma, size=1000)
+samples = np.sort(np.random.normal(mu, sigma, size=1000))
 fig1 = plt.figure()
 ax1 = fig1.add_subplot(121)
 # density=1 controls data normalization
@@ -16,10 +16,9 @@ ax1 = fig1.add_subplot(121)
 # bins: The edges of the bins, edges = n_bins + 1
 n, bins, patches = ax1.hist(samples, n_bins, density=1)
 # Ground truth distribution
-y = ((1 / (np.sqrt(2 * np.pi) * sigma)) * np.exp(-0.5 * ((bins - mu) / sigma)**2))
-
+y = ((1 / (np.sqrt(2 * np.pi) * sigma)) * np.exp(-0.5 * ((samples - mu) / sigma)**2))
 ax2 = fig1.add_subplot(122)
-ax2.plot(bins, y, label='ground truth distribution')
+ax2.plot(samples, y, label='ground truth distribution')
 plt.show()
 
 # 2D
