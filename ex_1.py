@@ -27,7 +27,7 @@ cov = np.array([[2.0, 0.3], [0.3, 0.5]])
 n_bins = 30
 
 # theoretical 2d gaussian
-x, y = np.mgrid[-6.0:6.0:10000j, -3.0:3.0:10000j]
+x, y = np.mgrid[-6.0:6.0:100j, -3.0:3.0:100j]
 # plot 3d figure pos.dim == 3
 pos = np.empty(x.shape + (2,))
 pos[:, :, 0] = x
