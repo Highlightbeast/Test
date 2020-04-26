@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import multivariate_normal
-
+from mpl_toolkits.mplot3d import Axes3D
 # 1000 samples from an uni-variant gaussian distribution with mean 1 and a standard deviation of 0.2
 mu = 1
 sigma = 0.1
@@ -51,8 +51,11 @@ z = np.random.multivariate_normal(mean_vec, cov, 10000)
 hist, xedges, yedges = np.histogram2d(z[:, 0], z[:, 1], bins=30, range=[[-6, 6], [-3, 2]], density=True)
 # :-1 except the last one, since it is not included
 x_pos, y_pos = np.meshgrid(xedges[:-1], yedges[:-1])
-x_pos = x_pos.flatten('F')
-y_pos = y_pos.flatten('F')
+# x_pos = x_pos.flatten('F')
+# y_pos = y_pos.flatten('F')
+# ndarray.Ravel Return a flattened array.
+x_pos = x_pos.ravel()
+y_pos = y_pos.ravel()
 z_pos = np.zeros_like(x_pos)
 
 # Construct arrays with the dimensions for the 100 bars.
